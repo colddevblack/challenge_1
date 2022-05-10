@@ -15,9 +15,8 @@ namespace APIClientes.Context
         {
             Database.EnsureCreated();
         }
+
         public DbSet<Cliente> Clientesdb { get; set; }
 
-
-      
     }
 }

@@ -13,16 +13,16 @@ namespace APIClientes.Controllers
     [ApiController]
     public class ClientesController : ControllerBase
     {
+        private readonly ILogger<ClientesController> _logger;
         private readonly DataContext db;
 
-        public ClientesController(DataContext conect)
+        public ClientesController(DataContext conect, ILogger<ClientesController> logger)
         {
             db = conect;
+            _logger = logger;
         }
 
-        public ClientesController()
-        {
-        }
+       
 
 
         //POST api/ClientesController/CriaClientes
@@ -40,21 +40,26 @@ namespace APIClientes.Controllers
                     model.Nascimento = nasc;
                     db.Clientesdb.Add(model);
                     db.SaveChanges();
+                    _logger.LogInformation("Endpoint  registro" + model);
                     return HttpStatusCode.Created;
+                    
                 }
                 if (excut.IsValid(CPF) == false)
                 {
+                    _logger.LogInformation("Endpoint  registro CPF invalido" + model);
                     return HttpStatusCode.UnprocessableEntity;
+                    
                 }
                 else
                 {
+                    _logger.LogInformation("Endpoint  registro CPF badrequest" + model);
                     return HttpStatusCode.BadRequest;
                 }
 
             }
             catch (Exception ex)
             {
-
+                _logger.LogWarning("erro" + ex);
                 throw ex;
             }
            
