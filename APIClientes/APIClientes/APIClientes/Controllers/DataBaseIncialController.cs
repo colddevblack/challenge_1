@@ -11,7 +11,7 @@ namespace APIClientes.Controllers
     [ApiController]
     public class DataBaseIncialController : ControllerBase
     {
-        //efetuar as migrations antes de executar Migrations Entity
+        //efetuar as migrations antes de executar esta controller para cadastro de usuario teste
       
 
         public ILogger<ClientesController> _logger;
@@ -38,7 +38,7 @@ namespace APIClientes.Controllers
             var obj = db.Clientesdb.Add(cli);
 
             db.SaveChanges();
-            return "Cadastro efetuado no banco" + cli;
+            return "Cadastro efetuado no banco " + cli;
         }
 
      

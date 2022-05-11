@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace APIClientes.Context
 {
+    //Classe de conexao para Entity
     public class DataContext : DbContext
     {
         private const string Options = "ConnectionDB";

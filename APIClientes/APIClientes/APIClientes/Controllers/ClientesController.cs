@@ -9,6 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace APIClientes.Controllers
 {
+
+    //Apis Clientes
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class ClientesController : ControllerBase
@@ -127,7 +129,7 @@ namespace APIClientes.Controllers
                 }
                 catch (Exception ex)
                 {
-                    throw  ex;
+                   throw  ex;
                 } 
         }
 
